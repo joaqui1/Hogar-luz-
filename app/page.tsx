@@ -31,10 +31,7 @@ import {
 
 export default function HogarLuzPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-<<<<<<< HEAD
   const [showInstagramButton, setShowInstagramButton] = useState(false)
-=======
->>>>>>> c278cac9c426a7e39011e20a648c1e435225e727
 
   const services = [
     {
@@ -124,7 +121,6 @@ export default function HogarLuzPage() {
   ]
 
   useEffect(() => {
-<<<<<<< HEAD
     const handleScroll = () => {
       // Mostrar el botón cuando el usuario baje 300px
       if (window.scrollY > 300) {
@@ -142,8 +138,6 @@ export default function HogarLuzPage() {
   }, [])
 
   useEffect(() => {
-=======
->>>>>>> c278cac9c426a7e39011e20a648c1e435225e727
     const link = document.createElement("link")
     link.rel = "stylesheet"
     link.href = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -565,15 +559,10 @@ export default function HogarLuzPage() {
         </div>
       </footer>
 
-<<<<<<< HEAD
       {/* Floating Instagram button with smooth appearance */}
       <div className={`fixed bottom-6 right-6 z-50 transition-all duration-500 ease-in-out ${
         showInstagramButton ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
       }`}>
-=======
-      {/* Floating Instagram button */}
-      <div className="fixed bottom-6 right-6 z-50">
->>>>>>> c278cac9c426a7e39011e20a648c1e435225e727
         <a href="https://www.instagram.com/hogar_luz/" target="_blank" rel="noopener noreferrer" className="btn-ig">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path
@@ -667,8 +656,4 @@ export default function HogarLuzPage() {
       `}</style>
     </div>
   )
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> c278cac9c426a7e39011e20a648c1e435225e727

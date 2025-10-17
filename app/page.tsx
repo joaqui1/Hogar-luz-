@@ -427,18 +427,25 @@ export default function HogarLuzPage() {
             <div className="grid md:grid-cols-2 gap-8 items-start">
               <div>
                 <h3 className="text-xl font-heading font-semibold text-primary mb-4 text-center">Nuestra ubicación</h3>
-                <div
-                  id="map-ubicacion"
-                  style={{
-                    height: "380px",
-                    borderRadius: "16px",
-                    overflow: "hidden",
-                    boxShadow: "0 10px 24px rgba(0,0,0,.08)",
-                  }}
-                />
+                <iframe
+  src="https://www.openstreetmap.org/export/embed.html?bbox=-62.2765,-38.7225,-62.2700,-38.7190&layer=mapnik&marker=-38.7207425,-62.2730911"
+
+  style={{
+    width: "100%",
+    height: "380px",
+    borderRadius: "16px",
+    border: "none",
+    boxShadow: "0 10px 24px rgba(0,0,0,.08)",
+  }}
+  allowFullScreen
+  loading="lazy"
+/>
+
+
                 <p className="text-center text-muted-foreground mt-4">
                   <a
-                    href="https://www.google.com/maps?q=Rondeau%20300,%20Bah%C3%ADa%20Blanca,%20Buenos%20Aires,%20Argentina"
+                    href="https://www.google.com/maps/place/Rondeau+350,+B8000FZH+Bah%C3%ADa+Blanca,+Provincia+de+Buenos+Aires/@-38.7207425,-62.2730911,17z"
+
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary hover:underline"

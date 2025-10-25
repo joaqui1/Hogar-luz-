@@ -122,18 +122,11 @@ export default function HogarLuzPage() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Mostrar el botón cuando el usuario baje 300px
-      if (window.scrollY > 300) {
-        setShowInstagramButton(true)
-      } else {
-        setShowInstagramButton(false)
-      }
+      setShowInstagramButton(window.scrollY > 300)
     }
-
-    window.addEventListener('scroll', handleScroll)
-    
+    window.addEventListener("scroll", handleScroll)
     return () => {
-      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener("scroll", handleScroll)
     }
   }, [])
 
@@ -418,100 +411,95 @@ export default function HogarLuzPage() {
       </section>
 
       <section id="donde-estamos" className="py-20 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-center text-primary mb-12">
-              ¿Dónde estamos?
-            </h2>
+  <div className="container mx-auto px-4">
+    <div className="max-w-6xl mx-auto">
+      <h2 className="text-3xl md:text-4xl font-heading font-bold text-center text-primary mb-12">
+        ¿Dónde estamos?
+      </h2>
 
-            <div className="grid md:grid-cols-2 gap-8 items-start">
+      <div className="grid md:grid-cols-2 gap-8 items-start">
+        <div>
+          <h3 className="text-xl font-heading font-semibold text-primary mb-4 text-center">Nuestra ubicación</h3>
+          <div
+            id="map-ubicacion"
+            style={{
+              height: "380px",
+              borderRadius: "16px",
+              overflow: "hidden",
+              boxShadow: "0 10px 24px rgba(0,0,0,.08)",
+            }}
+          />
+          <p className="text-center text-muted-foreground mt-4">
+            <a
+              href="https://www.google.com/maps?q=Rondeau%20300,%20Bah%C3%ADa%20Blanca,%20Buenos%20Aires,%20Argentina"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline"
+            >
+              Ver en Google Maps
+            </a>
+          </p>
+        </div>
+
+        <div className="flex flex-col">
+          {/* Espacio vacío para alinear con el título del mapa */}
+          <div className="h-[28px] mb-4 invisible">
+            <h3 className="text-xl font-heading font-semibold text-primary text-center">Contacto</h3>
+          </div>
+          
+          <Card className="border-0 shadow-lg h-[380px] flex flex-col">
+            <CardContent className="flex flex-col justify-center flex-grow p-6 space-y-6 text-center">
               <div>
-                <h3 className="text-xl font-heading font-semibold text-primary mb-4 text-center">Nuestra ubicación</h3>
-                <iframe
-  src="https://www.openstreetmap.org/export/embed.html?bbox=-62.2765,-38.7225,-62.2700,-38.7190&layer=mapnik&marker=-38.7207425,-62.2730911"
+                <div className="flex items-center gap-3 justify-center mb-4">
+                  <Phone className="h-6 w-6 text-accent" />
+                  <h3 className="font-heading text-xl font-semibold text-primary">Contacto Directo</h3>
+                </div>
+                <p className="text-2xl font-bold text-primary mb-4">+54 9 2914 41-7951</p>
+                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                  <Button asChild className="flex items-center gap-2">
+                    <a
+                      href="https://wa.me/5492914417951"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <MessageCircle className="h-4 w-4" />
+                      WhatsApp
+                    </a>
+                  </Button>
+                  <Button variant="outline" asChild className="flex items-center gap-2">
+                    <a href="tel:+5492914417951">
+                      <Phone className="h-4 w-4" />
+                      Llamar
+                    </a>
+                  </Button>
+                </div>
+              </div>
 
-  style={{
-    width: "100%",
-    height: "380px",
-    borderRadius: "16px",
-    border: "none",
-    boxShadow: "0 10px 24px rgba(0,0,0,.08)",
-  }}
-  allowFullScreen
-  loading="lazy"
-/>
-
-
-                <p className="text-center text-muted-foreground mt-4">
+              <div className="pt-4 border-t">
+                <h3 className="font-heading font-semibold text-lg text-primary mb-2">
+                  ¿Listo para conocer nuestro hogar?
+                </h3>
+                <p className="text-muted-foreground mb-4 text-sm">
+                  Te invitamos a visitarnos y conocer de primera mano el ambiente cálido y profesional que ofrecemos.
+                </p>
+                <Button asChild className="w-full flex items-center gap-2">
                   <a
-                    href="https://www.google.com/maps/place/Rondeau+350,+B8000FZH+Bah%C3%ADa+Blanca,+Provincia+de+Buenos+Aires/@-38.7207425,-62.2730911,17z"
-
+                    href="https://wa.me/5492914417951"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-primary hover:underline"
                   >
-                    Ver en Google Maps
+                    <MessageCircle className="h-4 w-4" />
+                    Agendar visita ahora
                   </a>
-                </p>
+                </Button>
               </div>
-
-              <div>
-                <Card className="border-0 shadow-lg">
-                  <CardHeader>
-                    <CardTitle className="font-heading text-xl flex items-center gap-3 justify-center">
-                      <Phone className="h-6 w-6 text-accent" />
-                      Contacto Directo
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="text-center">
-                    <p className="text-2xl font-bold text-primary mb-4">+54 9 2914 41-7951</p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-                      <Button asChild>
-                        <a
-                          href="https://wa.me/5492914417951"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2"
-                        >
-                          <MessageCircle className="h-4 w-4" />
-                          WhatsApp
-                        </a>
-                      </Button>
-                      <Button variant="outline" asChild>
-                        <a href="tel:+5492914417951" className="flex items-center gap-2">
-                          <Phone className="h-4 w-4" />
-                          Llamar
-                        </a>
-                      </Button>
-                    </div>
-
-                    <div className="bg-muted rounded-xl p-6">
-                      <h3 className="font-heading font-semibold text-lg mb-3 text-primary">
-                        ¿Listo para conocer nuestro hogar?
-                      </h3>
-                      <p className="text-muted-foreground mb-4 text-sm">
-                        Te invitamos a visitarnos y conocer de primera mano el ambiente cálido y profesional que
-                        ofrecemos.
-                      </p>
-                      <Button size="lg" asChild className="w-full">
-                        <a
-                          href="https://wa.me/5492914417951"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center gap-2"
-                        >
-                          <MessageCircle className="h-5 w-5" />
-                          Agendar visita ahora
-                        </a>
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              </div>
-            </div>
-          </div>
+            </CardContent>
+          </Card>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
 
       <footer className="bg-primary text-primary-foreground py-12">
         <div className="container mx-auto px-4">
@@ -566,10 +554,12 @@ export default function HogarLuzPage() {
         </div>
       </footer>
 
-      {/* Floating Instagram button with smooth appearance */}
-      <div className={`fixed bottom-6 right-6 z-50 transition-all duration-500 ease-in-out ${
-        showInstagramButton ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
-      }`}>
+      {/* Floating Instagram button con animación de scroll */}
+      <div
+        className={`fixed bottom-6 right-6 z-50 transition-all duration-500 ease-in-out ${
+          showInstagramButton ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
+        }`}
+      >
         <a href="https://www.instagram.com/hogar_luz/" target="_blank" rel="noopener noreferrer" className="btn-ig">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path
@@ -583,21 +573,36 @@ export default function HogarLuzPage() {
 
       {/* Professional gallery CSS styles */}
       <style jsx>{`
-        .btn-ig{
-          --ig-grad: linear-gradient(45deg,#F58529 0%,#FEDA77 15%,#DD2A7B 45%,#8134AF 70%,#515BD4 100%);
-          display:inline-flex; align-items:center; gap:.6rem;
-          padding:.65rem 1rem; border-radius:9999px;
-          color:#fff; font-weight:700; letter-spacing:.2px;
-          background: #8134AF; /* Added solid fallback background for accessibility */
-          background:var(--ig-grad);
-          box-shadow: 0 10px 24px rgba(81,91,212,.25);
-          transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
-          text-decoration:none;
+        .btn-ig {
+          --ig-grad: linear-gradient(45deg, #F58529 0%, #FEDA77 15%, #DD2A7B 45%, #8134AF 70%, #515BD4 100%);
+          display: inline-flex;
+          align-items: center;
+          gap: 0.6rem;
+          padding: 0.65rem 1rem;
+          border-radius: 9999px;
+          color: #fff;
+          font-weight: 700;
+          letter-spacing: 0.2px;
+          background: #8134AF;
+          background: var(--ig-grad);
+          box-shadow: 0 10px 24px rgba(81, 91, 212, 0.25);
+          transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+          text-decoration: none;
         }
-        .btn-ig:hover{ transform: translateY(-1px); filter:saturate(1.05); box-shadow:0 14px 28px rgba(81,91,212,.32); }
-        .btn-ig:active{ transform: translateY(0); }
-        .btn-ig svg{ width:18px; height:18px; display:block; }
-        
+        .btn-ig:hover {
+          transform: translateY(-1px);
+          filter: saturate(1.05);
+          box-shadow: 0 14px 28px rgba(81, 91, 212, 0.32);
+        }
+        .btn-ig:active {
+          transform: translateY(0);
+        }
+        .btn-ig svg {
+          width: 18px;
+          height: 18px;
+          display: block;
+        }
+
         .gallery {
           display: grid;
           gap: clamp(12px, 2vw, 20px);
@@ -623,7 +628,7 @@ export default function HogarLuzPage() {
           content: "";
           position: absolute;
           inset: 0;
-          background: linear-gradient(to top, rgba(0,0,0,0.28), rgba(0,0,0,0.05));
+          background: linear-gradient(to top, rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0.05));
           opacity: 0.9;
           transition: opacity 0.35s ease;
         }
@@ -635,7 +640,7 @@ export default function HogarLuzPage() {
           color: #fff;
           font-weight: 700;
           letter-spacing: 0.2px;
-          background: rgba(0,0,0,0.35);
+          background: rgba(0, 0, 0, 0.35);
           padding: 0.4rem 0.6rem;
           border-radius: 10px;
           backdrop-filter: blur(2px);

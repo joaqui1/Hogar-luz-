@@ -118,7 +118,7 @@ export default function HogarLuzPage() {
         <section id="cuidado" className="scroll-mt-24 section-alt section-pad">
           <span id="servicios" className="block scroll-mt-24" aria-hidden="true" />
           <div className="site-container">
-            <SectionIntro eyebrow="Por qué elegirnos" title="Más de 15 años cuidando y acompañando a nuestros abuelos">
+            <SectionIntro eyebrow="Por qué elegirnos" title="Más de 8 años cuidando y acompañando a nuestros abuelos">
               Experiencia, calidez y acompañamiento integral para que cada residente viva el día a día en un entorno
               familiar, cuidado y profesional.
             </SectionIntro>

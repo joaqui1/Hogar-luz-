@@ -14,13 +14,13 @@ import {
   focusRingClass,
   heroCoverDesktopImage,
   heroCoverImage,
-  locationLabel,
   phoneHref,
   phoneLabel,
   whatsappTopics,
 } from "@/lib/site"
 
 const defaultWaMessage = whatsappTopics[0].message
+const heroLocationLabel = "Rondeau 350"
 const heroCoverAlt = "Residentes y cuidadores en Hogar Luz, geriátrico en Bahía Blanca"
 
 const trustItems = [
@@ -36,7 +36,7 @@ const trustItems = [
   },
   {
     icon: CalendarDays,
-    title: "+15 años de experiencia",
+    title: "+8 años de experiencia",
     description: "Trayectoria en cuidado y acompañamiento",
   },
 ] as const
@@ -56,7 +56,7 @@ const desktopTrustItems = [
   },
   {
     icon: CalendarDays,
-    title: "+15 años de experiencia",
+    title: "+8 años de experiencia",
   },
 ] as const
 
@@ -132,8 +132,8 @@ export function HomeHero() {
             <Heart className="h-3 w-3 shrink-0" strokeWidth={1.5} aria-hidden />
           </div>
           <p className="mt-0.5 text-[0.56rem] font-semibold uppercase tracking-[0.14em] text-[#6F8178] sm:text-[0.7rem] lg:mt-0 lg:text-[0.84rem] lg:font-bold lg:tracking-[0.28em] lg:text-[#53654B] xl:text-[0.88rem]">
-            <span className="lg:hidden">{locationLabel}</span>
-            <span className="hidden lg:inline">Hogar Luz · {locationLabel}</span>
+            <span className="lg:hidden">{heroLocationLabel}</span>
+            <span className="hidden lg:inline">Hogar Luz · {heroLocationLabel}</span>
           </p>
 
           {heroHeading}

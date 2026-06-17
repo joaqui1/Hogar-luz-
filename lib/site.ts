@@ -54,6 +54,7 @@ export const instagramUrl = "https://www.instagram.com/hogar_luz/"
 
 export const heroImage = "/gallery/optimized/hogar-luz-acompanamiento.jpg"
 export const heroCoverImage = "/images/hero-portada.png"
+export const heroCoverDesktopImage = "/images/hero-portada-desktop.jpg"
 export const heroCoverWidth = 1024
 export const heroCoverHeight = 576
 

@@ -1,4 +1,3 @@
-import Image from "next/image"
 import Link from "next/link"
 import {
   ArrowRight,
@@ -13,6 +12,7 @@ import {
 import {
   buildWhatsappUrl,
   focusRingClass,
+  heroCoverDesktopImage,
   heroCoverImage,
   locationLabel,
   phoneHref,
@@ -110,14 +110,16 @@ export function HomeHero() {
     >
       <div className="hero-mobile lg:relative lg:h-[660px] lg:bg-[#F4F1E6] xl:h-[680px] 2xl:h-[680px]">
         <div className="hero-mobile__image lg:absolute lg:inset-y-0 lg:right-0 lg:h-full lg:w-full">
-          <Image
-            src={heroCoverImage}
-            alt={heroCoverAlt}
-            fill
-            priority
-            sizes="(min-width: 1024px) 80vw, 100vw"
-            className="scale-[1.07] object-cover object-[50%_42%] saturate-[1.02] lg:scale-100 lg:object-[62%_45%] lg:saturate-[1.14] lg:contrast-[1.06] lg:brightness-[1.06]"
-          />
+          <picture className="absolute inset-0 block">
+            <source media="(min-width: 1024px)" srcSet={heroCoverDesktopImage} />
+            <img
+              src={heroCoverImage}
+              alt={heroCoverAlt}
+              fetchPriority="high"
+              decoding="async"
+              className="h-full w-full scale-[1.07] object-cover object-[50%_42%] saturate-[1.02] lg:scale-100 lg:object-[62%_45%] lg:saturate-[1.14] lg:contrast-[1.06] lg:brightness-[1.06]"
+            />
+          </picture>
           <div className="hero-mobile__veil-bottom lg:hidden" aria-hidden />
           <div className="pointer-events-none absolute inset-0 hidden bg-[linear-gradient(90deg,#F6F1E5_0%,rgba(246,241,229,0.98)_18%,rgba(246,241,229,0.74)_33%,rgba(246,241,229,0.22)_46%,rgba(246,241,229,0.04)_57%,transparent_64%)] lg:block" />
           <div className="pointer-events-none absolute inset-x-0 bottom-0 hidden h-24 bg-gradient-to-t from-[#F4F1E6]/32 to-transparent lg:block" />

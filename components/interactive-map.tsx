@@ -18,7 +18,7 @@ export default function InteractiveMap({ className = "" }: InteractiveMapProps) 
           mapRef.current.innerHTML = ""
         }
 
-        // Coordinates for Bahía Blanca center (approximate area near Rondeau 300)
+        // Coordinates for the central area of Bahía Blanca.
         const bahiaBlancaCoords: [number, number] = [-38.7183, -62.2669]
 
         // Create map

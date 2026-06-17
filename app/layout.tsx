@@ -1,46 +1,76 @@
-import type { Metadata } from "next"
-import { Poppins, Inter } from "next/font/google"
+import type { Metadata, Viewport } from "next"
+import { Lora, Nunito_Sans } from "next/font/google"
 import Script from "next/script"
+import { jsonLdScript, seoDescription, seoTitle, siteUrl } from "@/lib/site"
+import { localBusinessSchema } from "@/lib/schema"
 import "./globals.css"
 
-const poppins = Poppins({
+const lora = Lora({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-poppins",
-  weight: ["400", "600", "700"],
+  variable: "--font-lora",
+  weight: ["500", "600", "700"],
 })
 
-const inter = Inter({
+const nunito = Nunito_Sans({
   subsets: ["latin"],
-  display: "swap", 
-  variable: "--font-inter",
-  weight: ["400", "500"],
+  display: "swap",
+  variable: "--font-nunito",
+  weight: ["400", "600", "700", "800"],
+  adjustFontFallback: false,
 })
 
 export const metadata: Metadata = {
-  title: "Hogar en Bahía Blanca | Geriátrico Bahía Blanca | Hogar Luz",
-  description: "Hogar de ancianos en Bahía Blanca con atención médica, enfermería y menú por nutricionistas. Ubicación céntrica y ambiente familiar.",
-  generator: "v0.app",
+  metadataBase: new URL(siteUrl),
+  title: seoTitle,
+  description: seoDescription,
+  applicationName: "Hogar Luz",
+  authors: [{ name: "Hogar Luz" }],
+  creator: "Hogar Luz",
+  publisher: "Hogar Luz",
   icons: {
     icon: "/favicon.ico",
     apple: "/favicon.ico",
   },
   alternates: {
-    canonical: "https://hogarluz.com.ar",
+    canonical: `${siteUrl}/`,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
   },
   openGraph: {
-    title: "Hogar en Bahía Blanca | Geriátrico Bahía Blanca | Hogar Luz",
-    description: "Hogar de ancianos en Bahía Blanca con atención médica, enfermería y menú por nutricionistas. Ubicación céntrica y ambiente familiar.",
+    title: seoTitle,
+    description: seoDescription,
     type: "website",
+    siteName: "Hogar Luz",
     locale: "es_AR",
-    url: "https://hogarluz.com.ar",
+    url: `${siteUrl}/`,
+    images: [
+      {
+        url: "/images/hero-portada.png",
+        width: 1024,
+        height: 576,
+        alt: "Celebración y abrazo en Hogar Luz, geriátrico en Bahía Blanca",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hogar en Bahía Blanca | Geriátrico Bahía Blanca | Hogar Luz",
-    description: "Hogar de ancianos en Bahía Blanca con atención médica integral y ambiente familiar",
+    title: seoTitle,
+    description: seoDescription,
+    images: ["/images/hero-portada.png"],
   },
-  keywords: ["hogar de ancianos", "geriátrico", "Bahía Blanca", "cuidado de adultos mayores", "residencia geriátrica"],
+  category: "Geriátrico",
+}
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 }
 
 export default function RootLayout({
@@ -49,13 +79,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es" className={`${poppins.variable} ${inter.variable} antialiased`}>
+    <html lang="es-AR" className={`${lora.variable} ${nunito.variable} antialiased`}>
       <body className="font-sans">
-        {/* Scripts de Google Ads y Schema.org */}
-        <Script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=AW-17660637922"
-        />
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=AW-17660637922" />
         <Script id="google-ads" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
@@ -65,30 +91,12 @@ export default function RootLayout({
           `}
         </Script>
 
-        <Script id="ld-json" type="application/ld+json" strategy="afterInteractive">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            name: "Hogar Luz",
-            description: "Hogar de ancianos en Bahía Blanca con atención médica integral y ambiente familiar",
-            address: {
-              "@type": "PostalAddress",
-              addressLocality: "Bahía Blanca",
-              addressRegion: "Buenos Aires", 
-              addressCountry: "AR",
-            },
-            telephone: "+54 9 2914 41-7951",
-            openingHours: "Mo-Su 00:00-23:59",
-            geo: {
-              "@type": "GeoCoordinates",
-              latitude: "-38.7183",
-              longitude: "-62.2669",
-            },
-            sameAs: ["https://wa.me/5492914417951"],
-            serviceType: "Nursing Home",
-            areaServed: "Bahía Blanca, Buenos Aires, Argentina",
-          })}
-        </Script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: jsonLdScript(localBusinessSchema),
+          }}
+        />
 
         {children}
       </body>

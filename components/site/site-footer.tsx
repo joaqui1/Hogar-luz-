@@ -102,6 +102,13 @@ export function SiteFooter({ navItems, extraLinks = [] }: SiteFooterProps) {
 
       <p className="mx-auto mt-10 max-w-[1140px] border-t border-white/12 pt-6 text-sm text-white/50">
         © {year} Hogar Luz. Todos los derechos reservados.
+        <span aria-hidden="true"> · </span>
+        <Link
+          href="/desarrollo-web"
+          className={`${focusRingClass()} rounded-md underline-offset-4 transition-colors hover:text-white hover:underline`}
+        >
+          Desarrollo web
+        </Link>
       </p>
     </footer>
   )
